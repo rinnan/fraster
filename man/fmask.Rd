@@ -38,8 +38,7 @@ fmask(x, mask, ...)
 \arguments{
 \item{x}{Raster* object}
 
-\item{mask}{Raster* object or a Spatial* object from sf or sp classes
-field = NULL, fun = "last", background = NA_real_, by = NULL}
+\item{mask}{Raster* object or a Spatial* object from sf or sp classes}
 
 \item{field}{numeric or character. The value(s) to be transferred. This can
 be a single number, or a vector of numbers that has the same length as the
