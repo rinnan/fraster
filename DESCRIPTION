@@ -1,0 +1,24 @@
+Package: fraster
+Type: Package
+Title: Fast manipulation of raster objects
+Version: 0.0.0.9000
+Date: 2019-11-14
+Author: D. Scott Rinnan
+Maintainer: D. Scott Rinnan <scott.rinnan@yale.edu>
+Description: 
+Depends:
+        R (>= 3.0.0),
+	      raster (>= 2.6.7),
+	      fasterize (>= 1.0.0)
+Imports:
+        doSNOW (>= 1.0.16),
+        methods,
+	      sf (>= 0.7.2),
+        snow (>= 0.4.2),
+        sp (>= 1.2.7)
+LinkingTo: Rcpp
+License: GPL (>= 3)
+LazyData: TRUE
+RoxygenNote: 6.1.1
+VignetteBuilder: knitr
+Encoding: UTF-8
