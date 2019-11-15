@@ -56,6 +56,7 @@
 #' @importFrom doSNOW registerDoSNOW
 #' @importFrom snow makeCluster clusterExport
 #' @importFrom parallel detectCores
+#' @importFrom utils setTxtProgressBar txtProgressBar
 
 setGeneric("parCov", function(x, y, ...){
   standardGeneric("parCov")})
