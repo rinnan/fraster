@@ -51,7 +51,8 @@ setMethod('fmask', signature(x='Raster', mask='sf'),
 setMethod('fmask', signature(x='Raster', mask='Spatial'),
           function(x, mask, filename="", inverse=FALSE, updatevalue=NA, updateNA=FALSE, ...){
             #if (inherits(mask, 'SpatialPolygons')) {
-              m <- fasterize::fasterize(mask, x)
+            temp <- sf::st_as_sf(mask)
+              m <- fasterize::fasterize(temp, x)
             #} else {
             #  m <- rasterize(mask, x, 1, silent=TRUE)
             #}
