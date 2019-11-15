@@ -12,12 +12,12 @@ Depends:
 	raster (>= 2.6.7),
 	fasterize (>= 1.0.0)
 Imports:
+	foreach (>= 1.4.4),
 	methods,
 	sf (>= 0.7.2),
 	sp (>= 1.2.7)
 Suggests: 
 	doSNOW (>= 1.0.16),
-	foreach (>= 1.4.4),
         knitr,
 	pbapply (>= 1.3.3),
 	snow (>= 0.4.2)

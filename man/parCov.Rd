@@ -27,7 +27,7 @@ parCov(x, y, ...)
   progress = FALSE,
   parallel = FALSE,
   n = 1,
-  cl,
+  cl = NULL,
   keep.open = FALSE
 )
 }

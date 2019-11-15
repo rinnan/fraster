@@ -34,7 +34,7 @@
 #' @seealso \code{\link[base]{scale}}, \code{\link[raster]{scale}}
 #'
 #' @export
-#' @importFrom foreach '%dopar%'
+# @importFrom foreach '%dopar%'
 
 setGeneric("parScale", function(x, ...){
   standardGeneric("parScale")})

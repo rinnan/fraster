@@ -51,11 +51,11 @@
 #' @seealso \code{\link[stats]{cov}}, \code{\link[raster]{layerStats}}
 #'
 #' @export
-#' @importFrom pbapply pbsapply pboptions
+# @importFrom pbapply pbsapply pboptions
 #' @importFrom foreach '%dopar%'
-#' @importFrom doSNOW registerDoSNOW
-#' @importFrom snow makeCluster clusterExport
-#' @importFrom parallel detectCores
+# @importFrom doSNOW registerDoSNOW
+# @importFrom snow makeCluster clusterExport
+# @importFrom parallel detectCores
 #' @importFrom utils setTxtProgressBar txtProgressBar
 
 setGeneric("parCov", function(x, y, ...){
@@ -151,12 +151,12 @@ setMethod("parCov",
 #' @rdname parCov
 setMethod("parCov",
           signature(x = "Raster", y = "Raster"),
-          function(x, y, w = NULL, sample = TRUE, progress = FALSE, parallel = FALSE, n = 1, cl, keep.open = FALSE){
+          function(x, y, w = NULL, sample = TRUE, progress = FALSE, parallel = FALSE, n = 1, cl = NULL, keep.open = FALSE){
 
             if (canProcessInMemory(x) & !parallel) {
               x.dat <- values(x)
               y.dat <- values(y)
-              mat <- stats::cov(x.dat, y.dat, method = "pearson", use = "pairwise.complete.obs")
+              mat <- stats::cov(x.dat, y.dat, method = "pearson", use = "complete.obs")
               return(mat)
             }
 
@@ -199,7 +199,7 @@ setMethod("parCov",
               if(!is.numeric(n) && is.null(cl)) {
                 n <- min(parallel::detectCores() - 1, floor(length(s)/2))
                 if (progress) message('incorrect number of cores specified, using ', n)
-              } else if(is.null(cl) && n > detectCores()) {
+              } else if(is.null(cl) && n > parallel::detectCores()) {
                 n <- min(parallel::detectCores() - 1, floor(length(s)/2))
                 if (progress) message('too many cores specified, using ', n)
               }
