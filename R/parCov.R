@@ -83,6 +83,10 @@ setMethod("parCov",
 
             if (!parallel || n == 1) {
               if (progress) {
+                if (!requireNamespace("pbapply", quietly = TRUE)) {
+                  stop("Package \"pbapply\" needed for this function to work. Please install it.",
+                       call. = FALSE)
+                }
                 pbapply::pboptions(char = "-", txt.width = NA, type = "txt")
                 result <- pbapply::pbsapply(s,
                                             function(p) do.call(.covij,
@@ -98,6 +102,14 @@ setMethod("parCov",
             }
 
             if (parallel && n > 1) {
+              if (!requireNamespace("doSNOW", quietly = TRUE)) {
+                stop("Package \"doSNOW\" needed for this function to work. Please install it.",
+                     call. = FALSE)
+              }
+              if (!requireNamespace("foreach", quietly = TRUE)) {
+                stop("Package \"foreach\" needed for this function to work. Please install it.",
+                     call. = FALSE)
+              }
               if (!keep.open) on.exit(closeAllConnections())
               if(!is.numeric(n) && is.null(cl)) {
                 n <- min(parallel::detectCores() - 1, floor(length(s)/2))
@@ -158,6 +170,10 @@ setMethod("parCov",
 
             if (!parallel | n == 1) {
               if (progress) {
+                if (!requireNamespace("pbapply", quietly = TRUE)) {
+                  stop("Package \"pbapply\" needed for this function to work. Please install it.",
+                       call. = FALSE)
+                }
                 pboptions(char = "-", txt.width = NA, type = "txt")
                 result <- pbapply::pbsapply(s, function(p) do.call(.covij,
                                                                    list(x = subset(x, z[p, 1]),
@@ -171,6 +187,14 @@ setMethod("parCov",
             }
 
             if (parallel && n > 1) {
+              if (!requireNamespace("doSNOW", quietly = TRUE)) {
+                stop("Package \"doSNOW\" needed for this function to work. Please install it.",
+                     call. = FALSE)
+              }
+              if (!requireNamespace("foreach", quietly = TRUE)) {
+                stop("Package \"foreach\" needed for this function to work. Please install it.",
+                     call. = FALSE)
+              }
               if (!keep.open) on.exit(closeAllConnections())
               if(!is.numeric(n) && is.null(cl)) {
                 n <- min(parallel::detectCores() - 1, floor(length(s)/2))

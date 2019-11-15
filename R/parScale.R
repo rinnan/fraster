@@ -69,6 +69,14 @@ setMethod("parScale",
             if (is.logical(scale)) scale <- rep(scale, nl)
 
             if (parallel && n > 1) {
+              if (!requireNamespace("doSNOW", quietly = TRUE)) {
+                stop("Package \"doSNOW\" needed for this function to work. Please install it.",
+                     call. = FALSE)
+              }
+              if (!requireNamespace("foreach", quietly = TRUE)) {
+                stop("Package \"foreach\" needed for this function to work. Please install it.",
+                     call. = FALSE)
+              }
               if (!keep.open) on.exit(closeAllConnections())
               if(!is.numeric(n) && is.null(cl)) {
                 n <- min(parallel::detectCores() - 1, floor(length(s)/2))
