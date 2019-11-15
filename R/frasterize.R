@@ -37,6 +37,7 @@
 #' @param by character.  The name of a column in `sf` by which to aggregate
 #' layers.  If set, fasterize will return a RasterBrick with as many layers
 #' as unique values of the `by` column.
+#' @param ... additional arguments (none currently implemented)
 #'
 #' @examples
 #'
