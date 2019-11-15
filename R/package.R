@@ -11,12 +11,13 @@
 #'
 #' @docType package
 #' @name fraster-package
-#' @useDynLib fraster
+## @useDynLib fraster
 #' @import raster
 #' @import fasterize
 #' @importClassesFrom sp SpatialPolygons SpatialPolygonsDataFrame SpatialPoints SpatialPointsDataFrame
 #' @importFrom sf st_sf st_sfc
 #' @import methods
+## @importFrom Rcpp sourceCpp
 NULL
 
 ## quiets concerns of R CMD check re: the .'s that appear in pipelines
@@ -27,6 +28,5 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("."))
 }
 
 .onUnload <- function (libpath) {
-  library.dynam.unload("fraster", libpath)
   closeAllConnections()
 }
