@@ -165,7 +165,7 @@ setMethod("parCov",
             mat <- matrix(NA, nrow = nlx, ncol = nly)
             rownames(mat) <- names(x)
             colnames(mat) <- names(y)
-            z <- .expand.grid.unique(1:nlx, 1:nly)
+            z <- expand.grid(1:nlx, 1:nly)
             s <- 1:nrow(z)
 
             if (!parallel | n == 1) {
@@ -226,7 +226,7 @@ setMethod("parCov",
 
             for (p in s) {
               mat[ z[p,2], z[p,1] ] <- result[p]
-              if(nlx > 1 & nly > 1) mat[ z[p,1], z[p,2] ] <- mat[ z[p,2], z[p,1] ]
+              #if(nlx > 1 & nly > 1) mat[ z[p,1], z[p,2] ] <- mat[ z[p,2], z[p,1] ]
             }
             return(mat)
           }
