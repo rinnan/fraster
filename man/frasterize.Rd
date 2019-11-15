@@ -17,6 +17,8 @@ frasterize(x, y, ...)
 
 \item{y}{Raster* object}
 
+\item{...}{additional arguments (none currently implemented)}
+
 \item{field}{numeric or character. The value(s) to be transferred. This can
 be a single number, or a vector of numbers that has the same length as the
 number of spatial features (points, lines, polygons). If x is a Spatial*DataFrame,
