@@ -1,4 +1,5 @@
 #' @keywords internal
+#' @importFrom stats na.omit
 
 # This function calculates the covariance between two raster layers.
 
