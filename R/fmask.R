@@ -67,7 +67,7 @@ setMethod('fmask', signature(x='RasterLayer', mask='RasterLayer'),
             updatevalue <- updatevalue[1]
 
             compareRaster(x, mask)
-            out <- .copyWithProperties(x)
+            out <- raster:::.copyWithProperties(x)
 
             if ( canProcessInMemory(x, 3)) {
 
